@@ -222,18 +222,52 @@ body.lock-scroll {
 /* ========================================== */
 
 /* Główny kontener koperty */
+/* ========================================== */
+/* POPRAWKA CUT-OFF TŁA NA DOLE (MOBILE FIX)  */
+/* ========================================== */
+
+.envelope-wrapper {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    /* Używamy nowoczesnego dvh (dynamic viewport height), który idealnie 
+       obsługuje wysuwane paski menu w telefonach i zapobiega ucinaniu tła */
+    height: 100vh; 
+    height: 100dvh; 
+    
+    background-color: #f7f5f0; 
+    background-image: url('paper-texture.jpg'); /* Upewnij się, że tekstura pokrywa cały ekran */
+    background-repeat: repeat;
+    background-size: auto;
+    
+    display: flex;
+    flex-direction: column; /* Układa kopertę i tekst idealnie w pionie */
+    justify-content: center;
+    align-items: center;
+    
+    /* Zwiększamy z-index, aby preloader absolutnie niczego nie przepuszczał spod spodu */
+    z-index: 99999; 
+    transition: opacity 0.8s cubic-bezier(0.25, 1, 0.5, 1), visibility 0.8s;
+}
+
+/* Dodatkowe zabezpieczenie: dopasowanie elementów w środku */
 .envelope {
-    position: relative; 
-    width: 90%;           /* Koperta zajmuje 90% szerokości ekranu na telefonie */
-    max-width: 360px;     /* Ale na komputerze nie przekroczy 360px */
-    aspect-ratio: 1.6 / 1; /* Automatycznie wylicza idealną wysokość (np. dla 320px szerokości da 200px wysokości) */
+    position: relative;
+    width: 90%;
+    max-width: 340px;
+    aspect-ratio: 1.6 / 1;
     background-color: #fcfbf7;
     border: 1px solid rgba(191, 161, 95, 0.3);
-    box-shadow: 0 15px 35px rgba(0,0,0,0.08);
-    cursor: pointer; 
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.08);
+    cursor: pointer;
     border-radius: 4px;
     transition: transform 0.4s;
+    
+    /* Margines na dole, aby napis pod kopertą nigdy nie uciekał poza ekran */
+    margin-bottom: 20px; 
 }
+
 
 .envelope:hover { 
     transform: translateY(-5px); 
@@ -877,3 +911,55 @@ transition: background-color 0.3s, transform 0.2s;}
     pointer-events: none;
 }
 
+.wedding-footer {
+    text-align: center;
+    padding: 60px 20px 40px 20px;
+    border-top: 1px solid rgba(191, 161, 95, 0.15);
+    margin-top: 60px;
+    font-family: 'Playfair Display', serif;
+}
+
+.countdown-title {
+    font-size: 18px;
+    font-style: italic;
+    margin-bottom: 25px;
+    color: #1c2430;
+}
+
+.countdown-grid {
+    display: flex;
+    justify-content: center;
+    gap: 25px;
+    margin-bottom: 40px;
+}
+
+.countdown-box {
+    font-size: 32px;
+    font-weight: 400;
+    color: #1c2430;
+    min-width: 65px;
+}
+
+.countdown-box span {
+    display: block;
+    border-bottom: 1px solid #bfa15f; /* Złota linia pod cyfrą */
+    padding-bottom: 5px;
+    margin-bottom: 5px;
+}
+
+.countdown-box .label {
+    font-family: 'Segoe UI', sans-serif;
+    font-size: 11px;
+    color: #888888;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.footer-decor { color: #bfa15f; font-size: 20px; margin-bottom: 15px; letter-spacing: 3px; }
+.footer-copy { font-family: 'Segoe UI', sans-serif; font-size: 11px; color: #999999; }
+
+@media screen and (max-width: 480px) {
+    .countdown-grid { gap: 15px; }
+    .countdown-box { font-size: 24px; min-width: 50px; }
+    .countdown-title { font-size: 16px; }
+}

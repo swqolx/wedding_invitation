@@ -138,3 +138,40 @@ if (rsvpForm) {
         });
     });
 }
+// ========================================== */
+// LICZNIK CZASU DO ŚLUBU (DATA: 20.07.2027)  */
+// ========================================== */
+
+// Ustawienie daty ślubu: Rok, Miesiąc (0-11), Dzień, Godzina, Minuta
+const weddingDate = new Date(2027, 6, 20, 16, 0, 0).getTime(); 
+
+const timerInterval = setInterval(() => {
+    const now = new Date().getTime();
+    const timeLeft = weddingDate - now;
+
+    // Gdy data minie
+    if (timeLeft < 0) {
+        clearInterval(timerInterval);
+        const activeLangEl = document.querySelector('#lang-switcher a.active');
+        const currentLang = activeLangEl ? activeLangEl.getAttribute('data-lang') : 'en';
+        
+        let endMessage = "The Royal Celebration Has Begun!";
+        if (currentLang === 'ua') endMessage = "Королівське свято розпочалося!";
+        if (currentLang === 'ru') endMessage = "Королевский праздник начался!";
+
+        document.querySelector('.countdown-grid').innerHTML = `<p style='font-style:italic; font-size: 20px; color: #4a148c;'>${endMessage}</p>`;
+        return;
+    }
+
+    // Wyliczanie dni, godzin, minut i sekund
+    const days = Math.floor(timeLeft / (1000 * 60 * 60 * 24));
+    const hours = Math.floor((timeLeft % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+    const minutes = Math.floor((timeLeft % (1000 * 60 * 60)) / (1000 * 60));
+    const seconds = Math.floor((timeLeft % (1000 * 60)) / 1000);
+
+    // Dodawanie zera z przodu, jeśli liczba jest jednocyfrowa (np. 05 zamiast 5)
+    document.getElementById('days').innerText = days < 10 ? '0' + days : days;
+    document.getElementById('hours').innerText = hours < 10 ? '0' + hours : hours;
+    document.getElementById('minutes').innerText = minutes < 10 ? '0' + minutes : minutes;
+    document.getElementById('seconds').innerText = seconds < 10 ? '0' + seconds : seconds;
+}, 1000);
