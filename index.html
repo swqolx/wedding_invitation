@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Wedding Invitation | eventsite.studio</title>
+    <link rel="stylesheet" href="style.css">
+    <!-- Google Fonts dla stylu Bridgerton -->
+    <link rel="preconnect" href="https://googleapis.com">
+    <link rel="preconnect" href="https://gstatic.com" crossorigin>
+    <link href="https://googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900&family=Segoe+UI:wght@400;600&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- КОРОЛЕВСКИЙ ЭКРАН ЗАГРУЗКИ (PRELOADER) -->
+<div class="preloader" id="site-preloader">
+    <div class="preloader__content">
+        <!-- Центральный символ (Золотой вензель) -->
+        <div class="preloader__monogram">⚜</div>
+        <!-- Элегантная каллиграфическая линия-разделитель -->
+        <div class="preloader__line"></div>
+        <!-- Подпись загрузки на трех языках -->
+        <div class="preloader__text" 
+             data-lang-en="Preparing the Royal Invitation..." 
+             data-lang-ua="Приготування королівського запрошення..." 
+             data-lang-ru="Приготовление королевского приглашения...">
+             Preparing the Royal Invitation...
+        </div>
+    </div>
+</div>
+
+    <audio id="weddingMusic" loop> <!-- Атрибут loop как раз и делает этот цикл -->
+    <source src="./scr/the_great_gatsby_03 Young and Beautiful.mp3" type="audio/mpeg">
+</audio>
+<div class="music-control" id="music-btn">
+    <div class="music-control__disk">⚜</div> <!-- Золотой королевский символ на диске -->
+    <div class="music-control__waves">
+        <span></span><span></span><span></span>
+    </div>
+</div>
+<div class="site-wrapper">
+
+    <!-- 1. INTERAKTYWNY KONVERT (POKAZUJE SIĘ JAKO PIERWSZY) -->
+    <div class="envelope-wrapper" id="envelope-overlay">
+        <div class="envelope" id="main-envelope">
+            <div class="envelope__top"></div>
+            <div class="envelope__body"></div>
+            <div class="envelope__seal">⚜</div>
+            <div class="envelope__text" 
+                 data-lang-en="Click to open the invitation" 
+                 data-lang-ua="Натисніть, щоб відкрити запрошення" 
+                 data-lang-ru="Нажмите, чтобы открыть приглашение">
+                 Click to open the invitation
+            </div>
+        </div>
+    </div>
+
+    <!-- 2. NAGŁÓWEK / MENU -->
+    <!-- <header>
+        <ul class="nav__list">
+            <li class="nav__item">
+                <p class="nav__logname">eventsite.studio</p>
+            </li>
+            <div class="nav__toggle" id="nav-toggle">
+                <span></span><span></span><span></span>
+            </div>
+          
+    </header> -->
+
+    <!-- 3. HERO: GŁÓWNY TYTUŁ I ZDJĘCIE PARY -->
+    <section class="hero-wedding">
+      <div class="ornament">✦ ⚜ ✦</div> 
+       <div class="hero-wedding__date-badge"> 20.07.2027</div>
+       <div class="hero-wedding__names">Nikita & Sofiia</div>
+        
+       
+       
+        
+        <!-- <div class="couple-frame"> -->
+            <!-- MIEJSCE NA TWOJE ZDJĘCIE PARY (ZDJĘCIE W OWALNEJ KORONKOWEJ RAMCE) -->
+            <!-- <img src="./scr/pexels-birseydaha-19567572.jpg" alt="Nikita & Sofiia" class="couple-frame__img">
+        </div> -->
+        
+    <div class="couple-frame">
+    <!-- Твоя фотография жениха и невесты -->
+    <img src="./scr/pexels-birseydaha-19567572.jpg" alt="Sergey & Maria" class="couple-frame__img">
+    
+    <!-- Наложение кружевной рамки поверх фото -->
+    <img src="lace-frame.png" alt="Lace Overlay" class="couple-frame__overlay">
+</div>
+
+         <h1 class="hero-wedding__title" 
+            data-lang-en="Wedding Invitation of Your Dreams" 
+            data-lang-ua="Запрошення на весілля твоєї мрії" 
+            data-lang-ru="Приглашение на свадьбу твоей мечты">
+            We get married!
+        </h1>
+        
+    </section>
+
+    <!-- 4. SEKCOA: DRODZY PRZYJACIELE I KALENDARZ -->
+    <section class="wedding-intro">
+        <div class="wedding-intro__card">
+            <h2 class="section-title" data-lang-en="Dear Friends and Family!" data-lang-ua="Дорогі друзі та рідні!" data-lang-ru="Дорогие друзья и родные!">Dear Friends and Family!</h2>
+            <div class="ornament">✦ ⚜ ✦</div>
+            <p class="wedding-intro__text" 
+               data-lang-en="An incredible event is about to happen — we have decided to unite our hearts and start a family together. We would be truly delighted if you share this beautiful and historic day with us."
+               data-lang-ua="Станеться неймовірна подія — ми вирішили об'єднати наші серця та створити сім'ю разом. Ми будемо щиро раді, якщо ви розділите цей прекрасний та історичний день разом із нами."
+               data-lang-ru="Случится невероятное событие — мы решили объединить наши сердца и создать семью вместе. Будем очень рады, если вы разделите с нами этот теплый и важный для нас день.">
+               An incredible event is about to happen — we have decided to unite our hearts and start a family together. We would be truly delighted if you share this beautiful and historic day with us.
+            </p>
+            
+            <!-- <div class="calendar-container"> -->
+                <!-- MIEJSCE NA TWÓJ KALENDARZ / ESTETYCZNĄ GRAFIKĘ MIESIĄCA -->
+                <!-- <div class="calendar-placeholder"><img class="img_010" src="" alt=""></div>
+            </div> -->
+        </div>
+    </section>
+
+    <!-- 5. SEKCTOR: HARMONOGRAM (PROGRAMA DNIA) -->
+    <section class="wedding-program">
+        <h2 class="section-title" data-lang-en="The Itinerary" data-lang-ua="Програма Дня" data-lang-ru="Программа дня">The Itinerary</h2>
+        <div class="ornament">❖</div>
+        
+        <div class="program-grid">
+            <div class="program-item">
+                <!-- <div class="program-item__icon"><img src="./scr/bokaly.png" alt=""></div> Wstaw obrazek/ikonę kieliszków -->
+                <div class="program-item__time">15:30</div>
+                <div class="program-item__title" data-lang-en="Gathering of Guests" data-lang-ua="Збір гостей" data-lang-ru="Сбор гостей">Gathering of Guests</div>
+            </div>
+            <div class="program-item">
+                <div class="program-item__icon"></div> <!-- Wstaw obrazek/ikonę obrączek -->
+                <div class="program-item__time">16:30</div>
+                <div class="program-item__title" data-lang-en="Wedding Ceremony" data-lang-ua="Церемонія" data-lang-ru="Церемония">Wedding Ceremony</div>
+            </div>
+            <div class="program-item">
+                <div class="program-item__icon"></div> <!-- Wstaw obrazek/ikonę talerza -->
+                <div class="program-item__time">17:30</div>
+                <div class="program-item__title" data-lang-en="Banquet Reception" data-lang-ua="Банкет" data-lang-ru="Банкет">Banquet Reception</div>
+            </div>
+            <div class="program-item">
+                <div class="program-item__icon"></div> <!-- Wstaw obrazek/ikonę tortu -->
+                <div class="program-item__time">22:00</div>
+                <div class="program-item__title" data-lang-en="Cake Cutting" data-lang-ua="Торт" data-lang-ru="Торт">Cake Cutting</div>
+            </div>
+            <div class="program-item">
+                <div class="program-item__icon"></div> <!-- Wstaw obrazek/ikonę gwiazd -->
+                <div class="program-item__time">23:00</div>
+                <div class="program-item__title" data-lang-en="Grand Finale" data-lang-ua="Завершення" data-lang-ru="Завершение">Grand Finale</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 6. SEKCJA: MIEJSCE / VENUE -->
+    <section class="wedding-venue">
+        <div class="venue-card">
+            <h2 class="section-title text-white" data-lang-en="The Venue" data-lang-ua="Місце проведення" data-lang-ru="Место проведения">The Venue</h2>
+            <p class="venue-details" data-lang-en="Our wedding will take place at the Grand Palace Gardens, Estate No. 5" data-lang-ua="Наше весілля відбудеться в заміському комплексі Grand Palace Gardens, Маєток №5" data-lang-ru="Наша свадьба пройдет в загородном комплексе Grand Palace Gardens, Имение №5">Our wedding will take place at the Grand Palace Gardens, Estate No. 5</p>
+            <a href="https://www.google.com/maps/place/VillaAnin+%7C+Dom+na+imprez%C4%99+firmow%C4%85,+urodziny,+wesele,+komuni%C4%99,+chrzciny.+Dom+z+ogrodem,+Lokal,+Sala+do+wynaj%C4%99cia+w+Warszawie/@52.2222552,21.158395,17z/data=!3m1!4b1!4m6!3m5!1s0x471ed31f43719309:0xace1b268bd7e37e7!8m2!3d52.2222552!4d21.1609699!16s%2Fg%2F11x1r2xm0q?entry=ttu&g_ep=EgoyMDI2MDkxNS4wIKXMDSoASAFQAw%3D%3D" target="_blank" class="venue-btn" data-lang-en="Get Directions" data-lang-ua="Побудувати маршрут" data-lang-ru="ПОСТРОИТЬ МАРШРУТ">GET DIRECTIONS</a>
+            
+            
+                <!-- MIEJSCE NA RYSUNEK/ZDJĘCIE PAŁACU LUB MAPY -->
+                <div ><img class="venue-placeholder" src="./scr/dom.png" alt=""></div>
+           
+        </div>
+    </section>
+
+    <!-- 7. SEKCJA: ŻYCZENIA / PREZENTY -->
+    <section class="wedding-wishes">
+        <h2 class="section-title" data-lang-en="Wishes & Gifts" data-lang-ua="Побажання та Подарунки" data-lang-ru="Пожелания">Wishes & Gifts</h2>
+        <div class="ornament">❧ ⚜ ☙</div>
+        
+        <div class="wishes-box">
+            <p data-lang-en="(1) To ensure your hands remain free for warm embraces, we would be delighted to receive your gifts in envelopes."
+               data-lang-ua="(1) Щоб ваші руки залишалися вільними для обіймів, ми будемо раді вашим подарункам у конвертах."
+               data-lang-ru="(1) Чтобы ваши руки были свободны для объятий, будем рады вашим подаркам в конвертах.">
+               (1) To ensure your hands remain free for warm embraces, we would be delighted to receive your gifts in envelopes.
+            </p>
+            <p data-lang-en="(2) We would appreciate it if instead of flowers you would consider bringing a bottle of wine to enrich our home collection."
+               data-lang-ua="(2) Будемо вдячні, якщо замість квітів ви подаруєте нам пляшку вина для нашої домашньої колекції."
+               data-lang-ru="(2) Приятным дополнением для нас будет, если вместо цветов вы решите подарить бутылку вина в нашу семейную коллекцию.">
+               (2) We would appreciate it if instead of flowers you would consider bringing a bottle of wine to enrich our home collection.
+            </p>
+        </div>
+    </section>
+
+    <!-- 8. SEKCJA: DRESS CODE -->
+    <section class="wedding-dresscode">
+        <div class="dresscode-card">
+            <h2 class="section-title" data-lang-en="Dress Code" data-lang-ua="Дрес-код" data-lang-ru="Дресс-код">Dress Code</h2>
+            <p class="dresscode-subtitle" ></p>
+                   <!-- Продолжение карточки дресс-кода: маска-сердечко и палитра -->
+            <!-- <div class="heart-mask-container">
+                <div class="heart-mask"> -->
+                    <!-- Замени 'palette-flowers.jpg' на свою картинку цветов или палитры -->
+                    <!-- <img src="palette-flowers.jpg" alt="Pastel Palette" class="heart-mask__img">
+                </div>
+            </div> -->
+
+            <div class="color-palette">
+                <div class="color-dot" style="background-color: #e3dcd3;"></div>
+                <div class="color-dot" style="background-color: #d1cbd4;"></div>
+                <div class="color-dot" style="background-color: #c9d6df;"></div>
+                <div class="color-dot" style="background-color: #e2f0d9;"></div>
+                <div class="color-dot" style="background-color: #fce4d6;"></div>
+            </div>
+        </div> <!-- Закрытие dresscode-card -->
+    </section> <!-- Закрытие wedding-dresscode -->
+
+    <!-- СЛЕДУЮЩАЯ СЕКЦИЯ: АНКЕТА RSVP -->
+    <section class="wedding-rsvp">
+        <div class="rsvp-form-card">
+            <h2 class="section-title" data-lang-en="RSVP Questionnaire" data-lang-ua="Анкета Гостя" data-lang-ru="Анкета">RSVP Questionnaire</h2>
+            <p class="rsvp-desc" data-lang-en="To help us ensure comfort for all esteemed guests, kindly fill out this small form." data-lang-ua="Щоб допомогти нам забезпечити комфорт для всіх гостей, будь ласка, заповніть цю анкету." data-lang-ru="Для того чтобы подготовиться к торжеству и обеспечить комфорт всем присутствующим, мы просим вас заполнить нашу анкету.">To help us ensure comfort for all esteemed guests, kindly fill out this small form.</p>
+            
+            <form id="fullRsvpForm" action="https://formspree.io/f/mjykvldv" method="POST">
+                <div class="form-input-group">
+                    <input type="text" class="elegant-input" required placeholder=" ">
+                    <label class="elegant-label" data-lang-en="Your Full Name" data-lang-ua="Ваше Ім'я та Прізвище" data-lang-ru="Ваше имя и фамилия">Your Full Name</label>
+                </div>
+
+                <div class="form-checkbox-section">
+                    <p class="section-sublabel" data-lang-en="Do you plan to attend the wedding?" data-lang-ua="Чи плануєте ви бути присутнім на весіллі?" data-lang-ru="Планируете ли вы присутствовать на свадьбе?">Do you plan to attend the wedding?</p>
+                    <label class="radio-option">
+                        <input type="radio" name="attend_choice" value="yes_alone" checked>
+                        <span data-lang-en="Yes, with pleasure!" data-lang-ua="Так, із задоволенням!" data-lang-ru="Да, с удовольствием!">Yes, with pleasure!</span>
+                    </label>
+                    <label class="radio-option">
+                        <input type="radio" name="attend_choice" value="yes_couple">
+                        <span data-lang-en="Yes, coming with a plus one!" data-lang-ua="Так, буду з парою!" data-lang-ru="Буду с парой!">Yes, coming with a plus one!</span>
+                    </label>
+                    <label class="radio-option">
+                        <input type="radio" name="attend_choice" value="no">
+                        <span data-lang-en="Regretfully, I won't be able to make it" data-lang-ua="На жаль, не зможу прийти" data-lang-ru="К сожалению, не смогу прийти">Regretfully, I won't be able to make it</span>
+                    </label>
+                </div>
+
+                <div class="form-input-group">
+                    <input type="text" class="elegant-input" placeholder=" ">
+                    <label class="elegant-label" data-lang-en="Any allergies or dietary restrictions we should know?" data-lang-ua="Чи є у вас алергії або обмеження в їжі?" data-lang-ru="Есть ли у вас аллергии, которые следует учесть при составлении меню?">Any allergies or dietary restrictions we should know?</label>
+                </div>
+
+                <div class="form-checkbox-section">
+                    <p class="section-sublabel" data-lang-en="Your beverage preferences:" data-lang-ua="Ваші уподобання в напоях:" data-lang-ru="Ваши предпочтения в напитках:">Your beverage preferences:</p>
+                    <label class="check-option"><input type="checkbox" name="drink" value="white_wine"> <span data-lang-en="White dry wine" data-lang-ua="Біле сухе вино" data-lang-ru="Белое сухое вино">White dry wine</span></label>
+                    <label class="check-option"><input type="checkbox" name="drink" value="white_sweet"> <span data-lang-en="White semi-sweet wine" data-lang-ua="Біле напівсолоде вино" data-lang-ru="Белое полусладкое вино">White semi-sweet wine</span></label>
+                    <label class="check-option"><input type="checkbox" name="drink" value="red_dry"> <span data-lang-en="Red dry wine" data-lang-ua="Червоне сухе вино" data-lang-ru="Красное сухое вино">Red dry wine</span></label>
+                    <label class="check-option"><input type="checkbox" name="drink" value="champagne"> <span data-lang-en="Champagne / Prosecco" data-lang-ua="Шампанське" data-lang-ru="Шампанское">Champagne / Prosecco</span></label>
+                    <label class="check-option"><input type="checkbox" name="drink" value="vodka"> <span data-lang-en="Vodka / Strong spirits" data-lang-ua="Міцний алкоголь" data-lang-ru="Водка">Vodka / Strong spirits</span></label>
+                    <label class="check-option"><input type="checkbox" name="drink" value="non_alcoholic"> <span data-lang-en="I prefer non-alcoholic drinks" data-lang-ua="Я не п'ю алкоголь" data-lang-ru="Я не пью алкоголь">I prefer non-alcoholic drinks</span></label>
+                </div>
+
+                <button type="submit" class="submit-rsvp-btn" data-lang-en="Send Response" data-lang-ua="Надіслати відповідь" data-lang-ru="ОТПРАВИТЬ">SEND RESPONSE</button>
+            </form>
+        </div>
+    </section>
+
+<script src="./java.js"></script>
+</body>
+</html>

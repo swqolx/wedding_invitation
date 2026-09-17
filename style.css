@@ -1,0 +1,879 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Ballet:opsz@16..72&family=Dancing+Script:wght@400..700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Chilanka&display=swap');
+/* ========================================== */
+/* RESET I STRUKTURA PAPIEROWA (BRIDGERTON)   */
+/* ========================================== */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Playfair Display', 'Georgia', serif;
+    color: #1c2430;
+    /* PODŁOŻE STRONY - TEKSTURA HANDMADE PAPER */
+    background-image: url('paper-texture.jpg');
+    background-repeat: repeat;
+    background-attachment: fixed;
+    overflow-x: hidden;
+}
+
+/* Ensure parent wrapper hides horizontal overflow as well */
+.site-wrapper { overflow-x: hidden; }
+
+/* Responsive overrides to prevent fixed pixel widths from overflowing */
+@media screen and (max-width: 768px) {
+    .envelope, .couple-frame, .heart-mask, .program-item, .venue-placeholder {
+        width: auto !important;
+        max-width: 90vw !important;
+        box-sizing: border-box;
+    }
+    .couple-frame { height: auto; }
+    .couple-frame__img, .heart-mask__img { height: auto; }
+    .countdown-box { min-width: 0 !important; }
+    .nav__list { padding-left: 16px; padding-right: 16px; }
+}
+
+body.lock-scroll {
+    overflow: hidden;
+}
+
+/* --- NAGŁÓWEK / MENU --- */
+.nav__list {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 40px;
+    background-color: rgba(252, 251, 247, 0.9);
+    border-bottom: 1px solid rgba(191, 161, 95, 0.2);
+    position: relative;
+    z-index: 1000;
+}
+
+.nav__logname {
+    font-weight: 600;
+    font-size: 16px;
+    font-style: italic;
+}
+
+.nav__menu-wrapper {
+    display: flex;
+    align-items: center;
+    gap: 40px;
+}
+
+.nav__links, .nav__languages {
+    display: flex;
+    gap: 25px;
+    list-style: none;
+}
+
+.nav__menu {
+    font-style: italic;
+    cursor: pointer;
+    transition: color 0.3s;
+}
+
+.nav__menu:hover { color: #bfa15f; }
+
+.nav__languages li a {
+    text-decoration: none;
+    font-family: 'Segoe UI', sans-serif;
+    font-size: 13px;
+    color: #999999;
+    font-weight: 600;
+}
+
+.nav__languages li a.active, .nav__languages li a:hover {
+    color: #4a148c;
+    font-weight: 700;
+}
+
+/* --- INTERAKTYWNY KONVERT OVERLAY --- */
+.envelope-wrapper {
+    position: fixed;
+    top: 0; left: 0; width: 100%; height: 100vh;
+    background-color: #f7f5f0;
+    display: flex; justify-content: center; align-items: center;
+    z-index: 9999;
+    transition: opacity 0.8s, visibility 0.8s;
+}
+
+.envelope {
+    position: relative; width: 320px; height: 200px;
+    background-color: #fcfbf7;
+    border: 1px solid rgba(191, 161, 95, 0.3);
+    box-shadow: 0 15px 35px rgba(0,0,0,0.08);
+    cursor: pointer; border-radius: 4px;
+    transition: transform 0.4s;
+}
+
+.envelope:hover { transform: translateY(-5px); }
+
+.envelope__top {
+    position: absolute; top: 0; left: 0; width: 0; height: 0;
+    border-left: 160px solid transparent; border-right: 160px solid transparent;
+    border-top: 110px solid #f2eedf; z-index: 3;
+    transform-origin: top; transition: transform 0.4s ease-in-out;
+}
+
+.envelope__body {
+    position: absolute; bottom: 0; left: 0; width: 0; height: 0;
+    border-left: 160px solid #fbfaf5; border-right: 160px solid #fbfaf5;
+    border-bottom: 110px solid #fcfbf7; z-index: 2;
+}
+
+.envelope__seal {
+    position: absolute; top: 90px; left: 50%; transform: translate(-50%, -50%);
+    width: 44px; height: 44px; background-color: #0a5307; color: #bfa15f;
+    border-radius: 50%; display: flex; justify-content: center; align-items: center;
+    font-size: 18px; z-index: 4; box-shadow: 0 4px 10px rgba(74, 20, 140, 0.3);
+}
+
+.envelope__text {
+    position: absolute; bottom: -40px; left: 0; width: 100%;
+    text-align: center; font-style: italic; font-size: 14px;
+}
+
+.envelope.open .envelope__top { transform: rotateX(180deg); z-index: 1; }
+.envelope.open .envelope__seal { opacity: 0; }
+.envelope-wrapper.fade-out { opacity: 0; visibility: hidden; pointer-events: none; }
+
+/* --- HERO BRIDGERTON SEKCJA --- */
+.hero-wedding {
+    text-align: center;
+    padding: 60px 20px;
+    background-image: url('./scr/pexels-officialpoi-35203363.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center top;
+}
+
+.hero-wedding__title {
+    font-size: 26px;
+    font-weight: 500;
+   font-style: italic;
+    letter-spacing: -0.5px;
+    margin-top: 20px;
+    color: #ffffff;
+
+}
+
+.hero-wedding__date-badge {
+    display: inline-block;
+    font-family: 'Segoe UI', sans-serif;
+    font-size: 14px;
+    letter-spacing: 2px;
+    padding: 6px 20px;
+    margin-bottom: 15px;
+    color: #fcfaff;
+}
+
+.hero-wedding__names {
+    font-size: 66px;
+     font-family: Ballet;
+     
+    color: #fefffe;
+    margin-bottom: 40px;
+}
+.couple-frame {
+    width: 280px;
+    height: 380px;
+    margin: 0 auto;
+    border-radius: 50% / 43%; /* Создает идеальный овал с картинки */
+    
+    /* Двойная золотая каллиграфическая рамка */
+    border: 3px solid #ffffff; 
+    outline: 8px double #ffffff; /* Создает королевский двойной контур снаружи */
+    outline-offset: 4px; /* Отступ между рамками */
+    
+    padding: 2px;
+    background-color: #fcfbf7;
+    box-shadow: 0 15px 35px rgba(28, 36, 48, 0.15), 
+                inset 0 0 20px rgba(191, 161, 95, 0.2); /* Внутреннее золотое свечение */
+    overflow: hidden;
+    transition: transform 0.4s ease;
+}
+
+.couple-frame__img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 50% / 43%;
+    filter: sepia(0.15) contract(1.05); /* Легкий винтажный фильтр как на образце */
+}
+
+
+
+
+.couple-frame__img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 50% / 43%;
+    filter: sepia(0.15) contract(1.05); /* Легкий винтажный фильтр как на образце */
+}
+
+/* ========================================== */
+/* POPRAWIONA, ELASTYCZNA KOPERTA NA TELEFON  */
+/* ========================================== */
+
+/* Główny kontener koperty */
+.envelope {
+    position: relative; 
+    width: 90%;           /* Koperta zajmuje 90% szerokości ekranu na telefonie */
+    max-width: 360px;     /* Ale na komputerze nie przekroczy 360px */
+    aspect-ratio: 1.6 / 1; /* Automatycznie wylicza idealną wysokość (np. dla 320px szerokości da 200px wysokości) */
+    background-color: #fcfbf7;
+    border: 1px solid rgba(191, 161, 95, 0.3);
+    box-shadow: 0 15px 35px rgba(0,0,0,0.08);
+    cursor: pointer; 
+    border-radius: 4px;
+    transition: transform 0.4s;
+}
+
+.envelope:hover { 
+    transform: translateY(-5px); 
+}
+
+/* Górny klap koperty (Trójkąt) */
+.envelope__top {
+    position: absolute; 
+    top: 0; 
+    left: 0; 
+    width: 100%; 
+    height: 100%;
+    /* Używamy clip-path zamiast grubych borderów – to gwarantuje idealną elastyczność */
+    clip-path: polygon(0 0, 100% 0, 50% 55%); 
+    background-color: #f2eedf; 
+    z-index: 3;
+    transform-origin: top; 
+    transition: transform 0.5s ease-in-out;
+}
+
+/* Dolna i boczne części koperty */
+.envelope__body {
+    position: absolute; 
+    bottom: 0; 
+    left: 0; 
+    width: 100%; 
+    height: 100%;
+    /* Tworzy idealne boczne zakładki koperty bez używania sztywnych pikseli */
+    clip-path: polygon(0 0, 50% 50%, 100% 0, 100% 100%, 0 100%);
+    background-color: #fbfaf5; 
+    z-index: 2;
+    border-radius: 0 0 4px 4px;
+}
+
+/* Królewska pieczęć (Sygnet) */
+.envelope__seal {
+    position: absolute; 
+    top: 50%;             /* Dokładny środek niezależnie od rozmiaru koperty */
+    left: 50%; 
+    transform: translate(-50%, -50%);
+    width: 44px; 
+    height: 44px; 
+    background-color: #1f5e27; 
+    color: #bfa15f;
+    border-radius: 50%; 
+    display: flex; 
+    justify-content: center; 
+    align-items: center;
+    font-size: 18px; 
+    z-index: 4; 
+    box-shadow: 0 4px 10px rgba(74, 20, 140, 0.3);
+    transition: all 0.3s ease;
+}
+
+/* Podpis pod kopertą */
+.envelope__text {
+    position: absolute; 
+    bottom: -45px; 
+    left: 0; 
+    width: 100%;
+    text-align: center; 
+    font-style: italic; 
+    font-size: 14px;
+    color: #1c2430;
+}
+
+/* --- ANIMACJA OTWARCIA (STAN PO KLIKNIĘCIU) --- */
+.envelope.open .envelope__top { 
+    transform: rotateX(180deg); 
+    z-index: 1; 
+}
+
+.envelope.open .envelope__seal { 
+    opacity: 0; 
+    transform: translate(-50%, -50%) scale(0.5); 
+}
+
+
+.couple-frame__img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 50% / 40%;
+    transform: scale(1.15)
+}
+
+/* --- ESTETYCZNE SEKCJE TEKSTOWE --- */
+.wedding-intro, .wedding-program, .wedding-wishes, .wedding-dresscode, .wedding-rsvp, .wedding-location {
+    max-width: 800px;
+    margin: 40px auto;
+    padding: 20px;
+}
+
+.wedding-intro__card {
+    background-color: rgba(251, 250, 245, 0.85);
+    border: 1px solid rgba(191, 161, 95, 0.2);
+    padding: 40px 30px;
+    text-align: center;
+    border-radius: 4px;
+}
+
+.section-title {
+    font-size: 28px;
+    font-style: italic;
+    font-weight: 500;
+    margin-bottom: 10px;
+
+}
+
+.text-white { color: #ffffff !important; }
+
+.ornament {
+    color: #bfa15f;
+    font-size: 16px;
+    margin-bottom: 20px;
+    letter-spacing: 4px;
+}
+
+.wedding-intro__text {
+    font-family: 'Segoe UI', sans-serif;
+    font-size: 15px;
+    line-height: 1.7;
+    color: #486841;
+}
+
+.calendar-container {
+    margin-top: 35px;
+}
+
+.calendar-placeholder {
+    border: 1px dashed #bfa15f;
+    padding: 40px 20px;
+    font-size: 13px;
+    color: #888888;
+    background-color: rgba(255,255,255,0.5);
+}
+
+/* --- HARMONOGRAM Z IKONAMI --- */
+.wedding-program { text-align: center; 
+background-image: url('./scr/newbc.png');
+  background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center top;
+}
+
+.program-grid {
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+    margin-top: 35px;
+    align-items: center;
+}
+
+.program-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    max-width: 300px;
+}
+
+.program-item__icon {
+   
+    font-size: 12px;
+    color: #bfa15f;
+    margin-bottom: 8px;
+}
+
+.program-item__time {
+    font-family: 'Segoe UI', sans-serif;
+    font-weight: 600;
+    color: #344832;
+    font-size: 15px;
+    margin-bottom: 4px;
+}
+
+.program-item__title {
+    font-size: 16px;
+    font-style: italic;
+}
+
+/* --- ZIELONA KARTA MIEJSCA --- */
+.venue-card {
+    background-color: #4d5c4b; /* Zielone głębokie tło z obrazka */
+    color: #ffffff;
+    padding: 50px 30px;
+    text-align: center;
+    border-radius: 4px;
+    box-shadow: 0 12px 30px rgba(0,0,0,0.1);
+}
+
+.venue-details {
+    font-family: 'Segoe UI', sans-serif;
+    font-size: 15px;
+    margin: 20px auto;
+    max-width: 450px;
+    line-height: 1.6;
+    opacity: 0.9;
+}
+
+.venue-btn {
+    display: inline-block;
+    border: 1px solid #ffffff;
+    color: #ffffff;
+    text-decoration: none;
+    padding: 10px 24px;
+    font-family: 'Segoe UI', sans-serif;
+    font-size: 13px;
+    letter-spacing: 1px;
+    margin-bottom: 30px;
+    transition: all 0.3s;
+}
+
+.venue-btn:hover {
+    background-color: #ffffff;
+    color: #4d5c4b;
+}
+
+.venue-placeholder {
+  
+    width: 300px;
+    height: 250px;
+ 
+}
+
+/* --- ŻYCZENIA --- */
+.wedding-wishes { text-align: center; }
+
+.wishes-box {
+    font-family: 'Segoe UI', sans-serif;
+    font-size: 15px;
+    line-height: 1.7;
+    color: #444444;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    margin-top: 25px;
+}
+
+/* --- DRESS CODE W FORMIE SERCA --- */
+.wedding-dresscode { text-align: center; }
+
+.dresscode-subtitle {
+    font-family: 'Segoe UI', sans-serif;
+    font-size: 14px;
+    color: #555555;
+    max-width: 500px;
+    margin: 0 auto 30px auto;
+    line-height: 1.6;
+}
+
+/* Kształt serca na grafikę */
+.heart-mask-container {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 30px;
+}
+
+.heart-mask {
+    width: 200px;
+    height: 190px;
+    clip-path: path("M100 36.3C87.4 15.1 50.8 17.1 36.5 35.2c-19.7 25 3.3 54.3 63.5 108.8 60.2-54.5 83.2-83.8 63.5-108.8C149.2 17.1 112.6 15.1 100 36.3z");
+    background-color: #f2eedf;
+    border: 1px solid #bfa15f;
+}
+
+.heart-mask__img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.color-palette {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+}
+
+.color-dot {
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    box-shadow: inset 0 2px 4px rgba(0,0,0,0.05), 0 2px 5px rgba(0,0,0,0.1);
+}
+
+/* --- SPERSONALIZOWANA ANKIETA RSVP --- */
+.rsvp-form-card {
+    background-color: rgba(251, 250, 245, 0.9);
+    border: 1px solid rgba(191, 161, 95, 0.3);
+    padding: 50px 30px;
+    border-radius: 4px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.03);
+}
+
+.rsvp-desc {
+    text-align: center;
+    font-family: 'Segoe UI', sans-serif;
+    font-size: 14px;
+    color: #666666;
+    margin-bottom: 40px;
+}
+
+.form-input-group {
+    position: relative;
+    margin-bottom: 35px;
+}
+
+.elegant-input {
+    width: 100%;
+    padding: 10px 0;
+    border: none;
+    border-bottom: 1px solid rgba(28, 36, 48, 0.2);
+    background: transparent;
+    font-family: 'Playfair Display', serif;
+    font-size: 16px;
+    outline: none;
+    transition: border-color 0.3s;
+}
+
+.elegant-input:focus { border-bottom-color: #4a148c; }
+
+.elegant-label {
+    position: absolute;
+    top: 10px; left: 0;
+    font-size: 15px; color: #888888;
+    font-style: italic; pointer-events: none;
+    transition: all 0.3s ease;
+}
+
+.elegant-input:focus + .elegant-label,
+.elegant-input:not(:placeholder-shown) + .elegant-label {
+    top: -15px; font-size: 12px; color: #4a148c;
+}
+
+.form-checkbox-section {
+    text-align: left;
+    margin-bottom: 35px;
+}
+
+.section-sublabel {
+    font-size: 16px;
+    font-style: italic;
+    color: #1c2430;
+    margin-bottom: 15px;
+    border-left: 2px solid #bfa15f;
+    padding-left: 10px;
+}
+
+.radio-option, .check-option {
+    display: block;
+    margin-bottom: 12px;
+    font-family: 'Segoe UI', sans-serif;
+    font-size: 14px;
+    color: #444444;
+    cursor: pointer;
+}
+
+.radio-option input, .check-option input {
+    margin-right: 10px;
+    accent-color: #4a148c;
+}
+
+.submit-rsvp-btn {
+    width: 100%;
+    background-color: #4d5c4b; /* Zbalansowana głęboka zieleń dla przycisku akceptacji */
+    color: #ffffff;
+border: none;
+padding: 16px;
+font-family: 'Segoe UI';
+font-size: 14px;
+letter-spacing: 2px;
+cursor: pointer;
+border-radius: 2px;
+transition: background-color 0.3s, transform 0.2s;}
+.submit-rsvp-btn:hover { background-color: #3e4a3c; }
+.submit-rsvp-btn:active { transform: scale(0.99); }
+/* --- STOPKA I LICZNIK --- */
+
+/* Centered thank-you layout after RSVP submit */
+.rsvp-thank {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    gap: 12px;
+    padding: 18px 12px;
+}
+.rsvp-thank .portfolio__ornament { color: #bfa15f; font-size: 26px; line-height: 1; }
+.rsvp-thank__msg { font-style: italic; font-size: 18px; color: #4a148c; margin: 0; }
+
+.wedding-footer {text-align: center;padding: 60px 20px 30px 20px;border-top: 1px solid rgba(191, 161, 95, 0.15);
+    margin-top: 60px;}
+    .countdown-title {font-size: 18px;font-style: italic;margin-bottom: 25px;}
+    .countdown-grid {display: flex;justify-content: center;gap: 25px;margin-bottom: 40px;}
+    
+    .countdown-box {font-size: 28px;font-weight: 400;color: #1c2430;min-width: 60px;}
+    .countdown-box span {display: block;border-bottom: 1px solid #bfa15f;padding-bottom: 5px;margin-bottom: 5px;}
+    .countdown-box .label {font-family: 'Segoe UI', sans-serif;font-size: 12px;color: #888888;text-transform: uppercase;}.footer-decor { color: #bfa15f; font-size: 18px; margin-bottom: 15px; }
+    .footer-copy { font-family: 'Segoe UI', sans-serif; font-size: 11px; color: #999999; }
+    /* --- TOGGLE MOBILE --- */
+    .nav__toggle { display: none; flex-direction: column; gap: 5px; cursor: pointer; }
+    .nav__toggle span { width: 22px; height: 2px; background-color: #1c2430; transition: 0.3s; }
+    
+    @media screen and (max-width: 768px) {
+        .nav__toggle { display: flex; }
+        .nav__menu-wrapper {position: absolute; 
+            top: 100%; 
+            left: 0; 
+            width: 100%;
+            background-color: #fcfbf7; 
+            flex-direction: column;
+            padding: 30px 0; 
+            gap: 25px; 
+            border-bottom: 1px solid rgba(191, 161, 95, 0.2);
+            opacity: 0; transform: translateY(-10px); 
+            pointer-events: none;transition: all 0.4s;}
+            .nav__menu-wrapper.active { 
+                opacity: 1;
+                 transform: translateY(0); 
+                 pointer-events: auto; }
+                 .nav__links { 
+                    flex-direction: column; 
+                    align-items: center; 
+                    gap: 15px; }
+                    .nav__languages {
+                         justify-content: center; }
+                         .nav__toggle.active span:nth-child(1) { 
+                            transform: translateY(7px) rotate(45deg); }
+                            .nav__toggle.active span:nth-child(2) { opacity: 0; }
+                            .nav__toggle.active span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+                            .hero-wedding__title { font-size: 32px; }
+                            .countdown-grid { gap: 12px; }
+                            .countdown-box { font-size: 20px; min-width: 45px; }}
+
+/* --- SCROLL ANIMATION UTILITIES --- */
+.animate-on-scroll {
+    opacity: 0;
+    transform: translateY(16px) scale(0.995);
+    transition: opacity 520ms cubic-bezier(.2,.9,.2,1), transform 520ms cubic-bezier(.2,.9,.2,1);
+    will-change: opacity, transform;
+}
+.animate-on-scroll.in-view {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+}
+.animate-fade-left {
+    transform: translateX(18px);
+}
+.animate-fade-left.in-view { transform: translateX(0); }
+.animate-fade-right {
+    transform: translateX(-18px);
+}
+.animate-fade-right.in-view { transform: translateX(0); }
+
+/* Reduced motion preference */
+@media (prefers-reduced-motion: reduce) {
+    .animate-on-scroll, .animate-fade-left, .animate-fade-right { transition: none !important; transform: none !important; opacity: 1 !important; }
+}
+/* ========================================== */
+/* КНОПКА УПРАВЛЕНИЯ МУЗЫКОЙ (ВИНИЛОВЫЙ ДИСК) */
+/* ========================================== */
+
+.music-control {
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    z-index: 999; /* Поверх всех секций, кроме конверта */
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    cursor: pointer;
+    background-color: rgba(252, 251, 247, 0.9); /* Полупрозрачный пергамент */
+    padding: 8px 15px 8px 8px;
+    border-radius: 30px;
+    border: 1px solid rgba(191, 161, 95, 0.3);
+    box-shadow: 0 10px 25px rgba(74, 20, 140, 0.05);
+    transition: transform 0.3s, box-shadow 0.3s;
+    user-select: none;
+}
+
+.music-control:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 15px 30px rgba(191, 161, 95, 0.15);
+}
+
+/* Сам вращающийся королевский диск */
+.music-control__disk {
+    width: 36px;
+    height: 36px;
+    background-color: #1c2430; /* Глубокий благородный синий */
+    color: #bfa15f; /* Золотой узор */
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 14px;
+    border: 1px solid #bfa15f;
+    
+    /* Запуск бесконечного кругового вращения */
+    animation: spinDisk 4s linear infinite;
+    animation-play-state: paused; /* Изначально стоит, пока конверт закрыт */
+    transition: transform 0.3s;
+}
+
+/* Эффект анимации вращения */
+@keyframes spinDisk {
+    from { transform: rotate(0deg); }
+    to { transform: rotate(360deg); }
+}
+
+/* Когда музыка играет — запускаем вращение */
+.music-control.playing .music-control__disk {
+    animation-play-state: running;
+}
+
+/* Элегантные звуковые волны рядом с диском */
+.music-control__waves {
+    display: flex;
+    align-items: flex-end;
+    gap: 3px;
+    height: 14px;
+}
+
+.music-control__waves span {
+    width: 2px;
+    background-color: #4a148c; /* Фирменный фиолетовый */
+    height: 2px;
+    border-radius: 1px;
+    transition: height 0.2s ease;
+}
+
+/* Анимация пульсации волн при проигрывании */
+@keyframes pulseWave {
+    0%, 100% { height: 2px; }
+    50% { height: 14px; }
+}
+
+.music-control.playing .music-control__waves span:nth-child(1) { animation: pulseWave 0.6s infinite alternate; }
+.music-control.playing .music-control__waves span:nth-child(2) { animation: pulseWave 0.9s infinite alternate 0.2s; }
+.music-control.playing .music-control__waves span:nth-child(3) { animation: pulseWave 0.7s infinite alternate 0.4s; }
+
+/* Эффект физического нажатия на кнопку */
+.music-control:active {
+    transform: scale(0.95);
+}
+
+/* АДАПТИВНОСТЬ ПОД ТЕЛЕФОНЫ */
+@media screen and (max-width: 768px) {
+    .music-control {
+        bottom: 20px;
+        right: 20px;
+        padding: 6px 12px 6px 6px;
+    }
+    .music-control__disk {
+        width: 32px;
+        height: 32px;
+        font-size: 12px;
+    }
+}
+
+/* ========================================== */
+/* КОРОЛЕВСКИЙ ПРЕЛОАДЕР (BRIDGERTON STYLE)   */
+/* ========================================== */
+
+.preloader {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    background-color: #fcfbf7; /* Благородный цвет дорогой бумаги / слоновой кости */
+    background-image: url('paper-texture.jpg'); /* Наша общая текстура бумаги */
+    background-repeat: repeat;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 10000; /* На самом верхнем слое, выше конверта */
+    transition: opacity 1s cubic-bezier(0.25, 1, 0.5, 1), visibility 1s;
+}
+
+.preloader__content {
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+/* Анимация плавного появления и пульсации вензеля */
+.preloader__monogram {
+    font-size: 64px;
+    color: #bfa15f; /* Королевское золото */
+    text-shadow: 0 0 15px rgba(191, 161, 95, 0.2);
+    animation: monogramBloom 2.5s ease-in-out infinite alternate;
+}
+
+@keyframes monogramBloom {
+    0% {
+        opacity: 0.3;
+        transform: scale(0.95);
+        filter: blur(2px);
+    }
+    100% {
+        opacity: 1;
+        transform: scale(1.05);
+        filter: blur(0);
+    }
+}
+
+/* Красивая золотая линия, которая плавно расширяется из центра */
+.preloader__line {
+    width: 0;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, #bfa15f, transparent);
+    margin: 20px 0;
+    animation: stretchLine 1.5s cubic-bezier(0.25, 1, 0.5, 1) forwards;
+}
+
+@keyframes stretchLine {
+    to { width: 200px; }
+}
+
+/* Проявление винтажного текста */
+.preloader__text {
+    font-family: 'Playfair Display', 'Georgia', serif;
+    font-style: italic;
+    font-size: 16px;
+    color: #1c2430;
+    letter-spacing: 0.5px;
+    opacity: 0;
+    animation: textFadeIn 1s ease forwards 0.5s; /* Появляется чуть позже линии */
+}
+
+@keyframes textFadeIn {
+    to { opacity: 0.7; }
+}
+
+/* Класс закрытия прелоадера, который добавит JavaScript */
+.preloader.disappear {
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+}
+
